@@ -1,0 +1,5 @@
+class WelcomeController < ApplicationController
+  def ctrl_hello
+    render :text => "I am from the controller"
+  end
+end
