@@ -1,0 +1,41 @@
+class ArticlesController < ApplicationController
+  def index
+    @articles = Article.all
+  end
+
+  def new
+    @articles = Article.new
+  end
+  
+  def create
+    @articles = Article.new(params[:article])
+    if @articles.save
+      redirect_to :action => "index"
+    else
+      flash.now[:error] = "Could not save article"
+      render :action => "new"
+    end
+  end
+
+  def edit
+    @articles=Article.find_by_id(params[:id])
+  end
+
+  def show
+    @articles=Article.find(params[:id])
+  end
+
+  def update
+    @articles = Article.find(params[:id])
+    if @articles.update_attributes(params[:article])
+      redirect_to :action => 'index'
+    else
+      render :action => "edit"
+    end
+  end
+
+  def delete
+    Article.find(params[:id]).destroy
+    redirect_to :action => 'index'
+  end
+end
