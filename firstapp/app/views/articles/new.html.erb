@@ -1,17 +1,17 @@
-  <% if @articles.errors.any? %>
+  <% if @article.errors.any? %>
     <div id="errorExplanation">
       <h2>
-         <%= pluralize(@articles.errors.count, "error") %> prohibited this Article from being saved:
+         <%= pluralize(@article.errors.count, "error") %> prohibited this Article from being saved:
       </h2>
       <ul>
-        <% @articles.errors.full_messages.each do |msg| %>
+        <% @article.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <%= form_for @articles, :url => {:action => "create"} do |i| %>
+  <%= form_for @article, :url => {:action => "create"} do |i| %>
     Title : <%= i.text_field :title %><br />
     Body  : <%= i.text_field :body %><br />
             <%= i.submit "Save" %>

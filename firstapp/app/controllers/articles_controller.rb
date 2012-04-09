@@ -1,41 +1,54 @@
 class ArticlesController < ApplicationController
+  before_filter :find_article, :only => [:destroy, :show, :update]
   def index
-    @articles = Article.all
+    @article = Article.all
   end
 
   def new
-    @articles = Article.new
+    @article = Article.new
   end
   
   def create
-    @articles = Article.new(params[:article])
-    if @articles.save
-      redirect_to :action => "index"
+    @article = Article.new(params[:article])
+    if @article.save
+      redirect_to articles_path#, :id => @article.id
     else
       flash.now[:error] = "Could not save article"
+      #@article = Article.find(:all)
       render :action => "new"
     end
   end
 
   def edit
-    @articles=Article.find(params[:id])
+    find_article
   end
 
   def show
-    @articles=Article.find(params[:id])
+    find_article
   end
 
   def update
-    @articles = Article.find(params[:id])
-    if @articles.update_attributes(params[:article])
-      redirect_to :action => 'index'
+    #@articles = Article.find(params[:id])
+    find_article
+    if @article.update_attributes(params[:article])
+      redirect_to articles_path
     else
       render :action => "edit"
     end
   end
 
-  def delete
+  def destroy
+    find_article
     Article.find(params[:id]).destroy
-    redirect_to :action => 'index'
+    redirect_to articles_path
   end
+
+  private
+    def find_article
+      @article=Article.find_by_id(params[:id])
+      if @article.nil?
+        flash[:error] = "Can't find article with id = '#{params{:id}}'"
+        redirect_to articles_path
+      end
+    end
 end

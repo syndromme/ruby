@@ -8,6 +8,8 @@ gem 'rails', '3.1.0'
 gem 'mysql2'
 gem 'execjs'
 gem 'therubyracer'
+gem 'bcrypt-ruby', :require => 'bcrypt'
+gem 'recaptcha', :require => 'recaptcha/rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -31,4 +33,10 @@ gem 'jquery-rails'
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
+#Public Key: 	#6LeV_c8SAAAAAIuF1mAo9LDwhrWQFcpQ2jGjp3rt
+
+#Use this in the JavaScript code that is served #to your users
+#Private Key: 	#6LeV_c8SAAAAABgsFT6JqVen2a2REhqyf6NFLEs2
+
+#Use this when communicating between your server #and our server. Be sure to keep it a secret.
 end
