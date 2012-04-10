@@ -1,17 +1,17 @@
 class ArticlesController < ApplicationController
   before_filter :find_article, :only => [:destroy, :show, :update]
+  before_filter :require_login, :only => [:new, :create, :edit, :update, :destroy]
   def index
     @article = Article.all
   end
 
   def new
     @article = Article.new
+    @comments = @article.comments
   end
   
   def create
-    #find_article
-    #new
-    @article = Article.new
+    @article = Article.new(params[:article])
     if @article.save
       redirect_to articles_path#, :id => @article.id
     else

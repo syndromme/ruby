@@ -1,3 +1,17 @@
-
+  <br />
+  <h2> Articles </h2>
   Article : <%= @article.title %> <br />
   Body : <%= @article.body %>
+
+  <h2> Comments </h2>
+  <div id="comments">
+    <% @comments.each do |comment| %>
+      <%= comment.content %><br />
+    <% end %>
+  </div><br /><br />
+
+  <%= form_for @comments, :url => {:action => "create"} do |i| %>
+    <%= i.text_area :content %>
+    <%= i.hidden_field :article_id, :value => @article.id %>
+    <%= submit_tag "Comment" %>
+  <% end %>

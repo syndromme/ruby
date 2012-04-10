@@ -19,4 +19,4 @@
   <% end %>
   </table>
   <br />
-  <%= link_to 'New', article_path %>
+  <%= link_to 'New', new_article_path %>

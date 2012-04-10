@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_filter :find_article, :only => [:destroy, :show, :update]
+  before_filter :require_login, :only => [:new, :create, :edit, :update, :destroy]
   def index
     @article = Article.all
   end
@@ -25,6 +26,7 @@ class ArticlesController < ApplicationController
 
   def show
     find_article
+    @comments = @article.comments
   end
 
   def update

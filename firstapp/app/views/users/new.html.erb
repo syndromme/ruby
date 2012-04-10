@@ -11,10 +11,33 @@
       </ul> 
     </div> 
   <% end %> 
-
+  <p> 
+    <%= f.label :first_name %><br /> 
+    <%= f.text_field :first_name %> 
+  </p>
+  <p> 
+    <%= f.label :last_name %><br /> 
+    <%= f.text_field :last_name %> 
+  </p>
   <p> 
     <%= f.label :email %><br /> 
     <%= f.text_field :email %> 
+  </p>
+  <p> 
+    <%= f.label :username %><br /> 
+    <%= f.text_field :username %> 
+  </p>
+  <p> 
+    <%= f.label :address %><br />
+    <%= f.text_area :address %> 
+  </p> 
+  <p> 
+    <%= f.label :birthday %><br /> 
+    <%= f.text_field :birthday %> 
+  </p> 
+  <p> 
+    <%= f.label :country_id %><br /> 
+    <%= f.text_field :country_id %> 
   </p> 
   <p> 
     <%= f.label :password %><br /> 
@@ -23,6 +46,9 @@
   <p> 
     <%= f.label :password_confirmation %> 
     <%= f.password_field :password_confirmation %> 
-  </p> 
-  <p class="button"><%= f.submit %></p> 
+  </p>
+  <%= recaptcha_tags %>      
+  <p class="button"><%= f.submit %></p>
+
 <% end %> 
+

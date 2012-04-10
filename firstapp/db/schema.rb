@@ -69,6 +69,8 @@ ActiveRecord::Schema.define(:version => 20120409093859) do
     t.integer  "age"
     t.date     "birthday"
     t.integer  "country_id"
+    t.string   "password_hash"
+    t.string   "password_salt"
   end
 
 end
