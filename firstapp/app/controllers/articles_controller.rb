@@ -21,12 +21,13 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    find_article
+    #find_article
   end
 
   def show
-    find_article
+    #find_article
     @comments = @article.comments
+    @comment = Comment.new
   end
 
   def update
