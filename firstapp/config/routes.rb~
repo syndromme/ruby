@@ -5,7 +5,7 @@ Firstapp::Application.routes.draw do
   resources :articles
   resources :users
   resources :sessions
-  recources :comments
+  resources :comments
   root :to => 'articles#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.

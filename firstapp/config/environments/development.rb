@@ -12,6 +12,10 @@ Firstapp::Application.configure do
     :enable_starttls_auto => true
   }
 
+  config.middleware.use ExceptionNotifier,
+    :email_prefix => "[Whatever]",
+    :sender_address => %{"notifier" <notifier@example.com>},
+    :exception_recipients => %w{agus.rusty3@gmail.com}
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on

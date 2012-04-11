@@ -5,12 +5,10 @@
 
   <h2> Comments </h2>
   <div id="comments">
-    <% @comments.each do |comment| %>
-      <%= comment.content %><br />
-    <% end %>
+    <%= render :partial => "comment", :locals => {:comments => @comments} %>
   </div><br /><br />
 
-  <%= form_for @comment, :url => {:action => "create"} do |i| %>
+  <%= form_for @comment, :url => comments_path, :remote => true do |i| %>
     <%= i.text_area :content %>
     <%= i.hidden_field :article_id, :value => @article.id %>
     <%= submit_tag "Comment" %>

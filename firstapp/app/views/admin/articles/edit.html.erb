@@ -11,8 +11,8 @@
     </div>
   <% end %>
 
-  <%= form_for @article, :url => {:action => "create"} do |i| %>
-    Title : <%= i.text_field :title %><br />
+  <%= form_for @article, :url => {:action => "update"} do |i| %>
+    Title : <%= i.text_field :title, :value=> @article.title %><br />
     Body  : <%= i.text_field :body %><br />
             <%= i.submit "Save" %>
   <% end %>

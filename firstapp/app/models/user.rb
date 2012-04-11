@@ -33,4 +33,8 @@ class User < ActiveRecord::Base
       nil
     end
   end
+
+  def is_admin?
+    self.email == "agus_rusty@yahoo.co.id"
+  end
 end

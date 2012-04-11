@@ -8,7 +8,10 @@ gem 'rails', '3.1.0'
 gem 'mysql2'
 gem 'execjs'
 gem 'therubyracer'
-gem 'bcrypt', :require => 'bcrypt'
+gem 'bcrypt-ruby', :require => 'bcrypt'
+gem 'recaptcha', :require => 'recaptcha/rails'
+gem 'exception_notification'
+gem 'ruby-debug19'
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -3,11 +3,11 @@
 <head>
   <title>Firstapp</title>
   <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag :all %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= raw{welcome_text| %>
+  <%= raw(welcome_text) %>
   <%= yield %>
 
 </body>
