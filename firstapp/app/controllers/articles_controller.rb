@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_filter :require_login, :only => [:new, :create, :edit, :update, :destroy]
+  before_filter :require_login, :only => [:new, :create, :edit, :update, :destroy, :show]
   before_filter :find_article, :only => [:destroy, :show, :update, :edit]
   before_filter :find_user, :only => [:update, :destroy, :edit, :show]
 
@@ -52,14 +52,14 @@ class ArticlesController < ApplicationController
       @article=Article.find_by_id(params[:id])
       if @article.nil?
         flash[:error] = "Can't find article with id = '#{params{:id}}'"
-        redirect_to articles_path
+        redirect_to root_url
       end
     end
 
     def find_user
       @user=@article.user
-      unless @user.id == session[:user_id]
-        redirect_to articles_path
+      unless @user.id == current_user.id#session[:user_id]
+        redirect_to root_url
       end
     end
 end

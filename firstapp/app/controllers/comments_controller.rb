@@ -1,7 +1,8 @@
 class CommentsController < ApplicationController
   def create
     @comment = Comment.new(params[:comment])
-    @comments = Comment.where("article_id=#{@comment.article_id}")#Article.find_by_id(@comment.article_id)
+    @comments = Comment.where("article_id=#{@comment.article_id}")
+    #Article.find_by_id(@comment.article_id)
     #@article.user=current_user
     #@article.user_id=current_user.id
   #  if @comment.save
